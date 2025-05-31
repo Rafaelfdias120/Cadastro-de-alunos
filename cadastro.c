@@ -54,18 +54,20 @@ void listarAlunos(struct Aluno alunos[], int total){
 }
 
 void buscarAluno(struct Aluno Alunos[], int total){
+    char buscarNome[100];
+    int encontrado = 0;
+    int i;
+
     printf("3. Buscar aluno por nome\n");
     
     printf("Digite o nome do aluno: ");
     fflush(stdin);
-    fgets(buscaNome, 100, stdin);
-    buscaNome[strcspn(buscaNome, "\n")] = '\0';
+    fgets(buscarNome, 100, stdin);
+    buscarNome[strcspn(buscarNome, "\n")] = '\0';
     
-    int encontrado = 0;
-    
-    for ( i = 0; i < TotalAlunos; i++){
-        if(strcmp(buscaNome, nomes[i].nome) == 0){
-            mostrarAluno(nomes[i]);
+    for ( i = 0; i < total; i++){
+        if(strcmp(buscarNome, Alunos[i].nome) == 0){
+            mostrarAluno(Alunos[i]);
             encontrado = 1;
             break;
         }
@@ -75,13 +77,10 @@ void buscarAluno(struct Aluno Alunos[], int total){
     }
 }
 
-int i;
-int opcao;
-int TotalAlunos = 0;
-struct Aluno nomes[100];
-char buscaNome[100];
-
 int main(){
+    int opcao;
+    int TotalAlunos = 0;
+    struct Aluno nomes[100];
 
     setlocale(LC_ALL, "");
     
