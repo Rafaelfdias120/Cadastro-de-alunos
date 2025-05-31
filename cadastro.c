@@ -31,8 +31,11 @@ void cadastraAluno(struct Aluno alunos[], int *total){
     printf("Digite a idade do aluno: ");
     scanf("%d", &alunos[*total].idade);
     
-    printf("Digite as notas do aluno: ");
-    scanf("%f %f", &alunos[*total].nota1, &alunos[*total].nota2);
+    printf("Digite a primeira nota do aluno: ");
+    scanf("%f", &alunos[*total].nota1);
+
+    printf("Digite a segunda nota do aluno: ");
+    scanf("%f", &alunos[*total].nota2);
     
     alunos[*total].media = (alunos[*total].nota1 + alunos[*total].nota2) / 2;
     
